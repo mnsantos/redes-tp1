@@ -27,6 +27,5 @@ def monitor_callback(pkt):
   print "wrote ARPs: " + str(counter)
   
 if __name__ == '__main__':
-  print initialtime
   sniff(prn=monitor_callback, filter="arp", store = 0)
   
