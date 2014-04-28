@@ -2,8 +2,10 @@
 
 from scapy.all import *
 import json
+import time
 
 counter = 0
+initialtime = time.time()
 
 def monitor_callback(pkt):
   global counter
@@ -14,7 +16,7 @@ def monitor_callback(pkt):
   #else:
   #  print "op is-at"
   #print pkt.show()
-  p = {"src":pkt.src, "dst":pkt.dst, "psrc":pkt.psrc, "pdst":pkt.pdst, "op":pkt.op, "hwsrc":pkt.hwsrc, "hwdst":pkt.hwdst}
+  p = {"src":pkt.src, "dst":pkt.dst, "psrc":pkt.psrc, "pdst":pkt.pdst, "op":pkt.op, "hwsrc":pkt.hwsrc, "hwdst":pkt.hwdst, "time":time.time()-initialtime}
   jsonObj = json.dumps(p, ensure_ascii=False)
   f = open('out.txt', 'a')
   f.write(",")
