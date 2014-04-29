@@ -36,11 +36,12 @@ def inf_who_has_recibidos(array, ip):
 
 def graficador_1(data):
 
-	n_groups = len(data)
+	new_data = [d for d in data if d[1] > 0]
+	n_groups = len(new_data)
 	ips = []
 	sent_who_has = []
 
-	for d in data:
+	for d in new_data:
 		ips.append(d[0])
 		sent_who_has.append(d[1])
 
@@ -63,11 +64,12 @@ def graficador_1(data):
 
 def graficador_2(data):
 
-	n_groups = len(data)
+	new_data = [d for d in data if d[2] > 0]
+	n_groups = len(new_data)
 	ips = []
 	received_who_has = []
 
-	for d in data:
+	for d in new_data:
 		ips.append(d[0])
 		received_who_has.append(d[2])
 
@@ -104,8 +106,8 @@ if __name__ == '__main__':
 		l.append(inf1)
 		l.append(inf2)
 		ls.append(l)
-		graficador_1(ls)
-		graficador_2(ls)
+	graficador_1(ls)
+	graficador_2(ls)
 	
 
 	
