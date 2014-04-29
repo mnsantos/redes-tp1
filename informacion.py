@@ -1,5 +1,6 @@
 import json
 import math
+import sys
 
 def ips(array):
 	conj = []
@@ -32,7 +33,7 @@ def inf_who_has_recibidos(array, ip):
 		return 0
 			
 if __name__ == '__main__':
-	file = open("out.txt")
+	file = open(sys.argv[1])
 	file = file.read()
 	decoded_data = json.loads(file)
 	conj = ips(decoded_data)
@@ -46,7 +47,6 @@ if __name__ == '__main__':
 		l.append(inf1)
 		l.append(inf2)
 		ls.append(l)
-	
 	
 
 	
