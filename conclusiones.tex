@@ -1,0 +1,7 @@
+Mediante la escucha de paquetes ARP en una red local, concluimos que es posible identificar algunos comportamientos de la red. En todos los casos fue sencillo relevar cual era el nodo que estaba funcionando como gateway de la red. Para eso se evaluo la cantidad de paquetes who-has enviados y recibidos por los nodos y las conexiones de nodo con los demas. El gateway resultaba ser el nodo que se conectaba a todos los demas y que por lo general emitia mas paquetes who-has. Otra forma de verlo resulta ser que el gateway es el nodo menos cantidad de informacion cuando se considera la fuente Ssrc.
+
+Encontramos casos atipicos como nodos que emitian una alta cantidad de paquetes who-has o nodos que parecian no pertenecer a la red local pero que aun asi hacian broadcast de paquetes ARP en la red. 
+
+Tambien encontramos con que el router en la red hogareña estaba funcionando como servidor DHCP (una funcion comun de los routers) y que por esa razon al desconectar y conectar dispositivos se envian paquetes who-has a una direccion arbitraria.
+
+Resulto que el estudio de una red mediante paquetes ARP puede expresar ciertos aspectos de esta, pero tiene un alcance limitado. Ademas el analisis de los paquetes esta propenso a comportamientos particulares de cada red. Podemos suponer que en una red muy pequeña, de unos pocos nodos, seria mas dificultoso hallar el gateway de la red y comportamientos particulares de la red, y que a medida que la red tiene mas nodos se ven distinciones entre los comportamientos de estos
