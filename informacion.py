@@ -55,8 +55,11 @@ def graficador_1(data):
 	plt.ylabel('#Informacion')
 	plt.ylim([0,15])
 	plt.title('Mediciones tomadas en el starbucks')
-	plt.xticks(index+bar_width/2, ips)
+	plt.xticks(index+bar_width*2, ips)
+	plt.xticks(rotation=-60)
 	plt.legend()
+	plt.tight_layout()
+	
 
 	plt.savefig("sent_who_has")	
 	plt.close()
@@ -73,7 +76,7 @@ def graficador_2(data):
 
 	index = np.arange(n_groups)
 
-	bar_width = 0.4
+	bar_width = 0.8
 	opacity = 0.4
 
 	rects2 = plt.bar(index, received_who_has, bar_width, alpha=opacity, color='red', label='who_has_recibidos')
@@ -82,8 +85,10 @@ def graficador_2(data):
 	plt.ylabel('#Informacion')
 	plt.ylim([0,15])
 	plt.title('Mediciones tomadas en el starbucks')
-	plt.xticks(index+bar_width/2, ips)
+	plt.xticks(index+bar_width*2, ips)
+	plt.xticks(rotation=-60)
 	plt.legend()
+	plt.tight_layout()
 
 	plt.savefig("received_who_has")	
 	plt.close()
@@ -104,8 +109,8 @@ if __name__ == '__main__':
 		l.append(inf1)
 		l.append(inf2)
 		ls.append(l)
-		graficador_1(ls)
-		graficador_2(ls)
+	graficador_1(ls)
+	graficador_2(ls)
 	
 
 	
