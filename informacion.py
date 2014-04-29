@@ -47,7 +47,7 @@ def graficador_1(data):
 
 	index = np.arange(n_groups)
 
-	bar_width = 0.4
+	bar_width = 0.8
 	opacity = 0.4
 
 	rects1 = plt.bar(index, sent_who_has, bar_width, alpha=opacity, color='blue', label='who_has enviados')
@@ -56,7 +56,7 @@ def graficador_1(data):
 	plt.ylabel('#Informacion')
 	plt.ylim([0,15])
 	plt.title('Mediciones tomadas en el starbucks')
-	plt.xticks(index+bar_width*2, ips)
+	plt.xticks(index+bar_width+0.4, ips)
 	plt.xticks(rotation=-60)
 	plt.legend()
 	plt.tight_layout()
@@ -87,7 +87,7 @@ def graficador_2(data):
 	plt.ylabel('#Informacion')
 	plt.ylim([0,15])
 	plt.title('Mediciones tomadas en el starbucks')
-	plt.xticks(index+bar_width*2, ips)
+	plt.xticks(index+bar_width+0.4, ips)
 	plt.xticks(rotation=-60)
 	plt.legend()
 	plt.tight_layout()
