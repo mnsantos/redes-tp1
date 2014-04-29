@@ -1,3 +1,5 @@
+import numpy as np
+import matplotlib.pyplot as plt
 import json
 import math
 import sys
@@ -31,6 +33,61 @@ def inf_who_has_recibidos(array, ip):
 		return -math.log(prob,2)
 	else:
 		return 0
+
+def graficador_1(data):
+
+	n_groups = len(data)
+	ips = []
+	sent_who_has = []
+
+	for d in data:
+		ips.append(d[0])
+		sent_who_has.append(d[1])
+
+	index = np.arange(n_groups)
+
+	bar_width = 0.4
+	opacity = 0.4
+
+	rects1 = plt.bar(index, sent_who_has, bar_width, alpha=opacity, color='blue', label='who_has enviados')
+
+	plt.xlabel('Direcciones de IP')
+	plt.ylabel('#Informacion')
+	plt.ylim([0,15])
+	plt.title('Mediciones tomadas en el starbucks')
+	plt.xticks(index+bar_width/2, ips)
+	plt.legend()
+
+	plt.savefig("sent_who_has")	
+	plt.close()
+
+def graficador_2(data):
+
+	n_groups = len(data)
+	ips = []
+	received_who_has = []
+
+	for d in data:
+		ips.append(d[0])
+		received_who_has.append(d[2])
+
+	index = np.arange(n_groups)
+
+	bar_width = 0.4
+	opacity = 0.4
+
+	rects2 = plt.bar(index, received_who_has, bar_width, alpha=opacity, color='red', label='who_has_recibidos')
+
+	plt.xlabel('Direcciones de IP')
+	plt.ylabel('#Informacion')
+	plt.ylim([0,15])
+	plt.title('Mediciones tomadas en el starbucks')
+	plt.xticks(index+bar_width/2, ips)
+	plt.legend()
+
+	plt.savefig("received_who_has")	
+	plt.close()
+
 			
 if __name__ == '__main__':
 	file = open(sys.argv[1])
@@ -47,6 +104,8 @@ if __name__ == '__main__':
 		l.append(inf1)
 		l.append(inf2)
 		ls.append(l)
+		graficador_1(ls)
+		graficador_2(ls)
 	
 
 	
