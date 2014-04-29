@@ -63,7 +63,7 @@ En el caso de la red pública, obtuvimos los siguientes valores para la entropí
 
 En esta experimentación el router es claramente el nodo que más paquetes who-has recibe. Pero en cuanto a los paquetes who-has emitidos, se ve que el router no es el que mas paquetes envía, sino que como se mencionó anteriormente hay 2 nodos(10.251.14.126 y 10.251.14.226) que son los principales emisores de paquetes ARP y que se mantuvieron muy activos a lo largo de la experimentación.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 	\begin{center}
 		  \includegraphics[scale=0.4]{Graficos/starbucks_sent_who_has.png}
 		  \caption{Histograma Starbucks, fuente: who-has enviados}
@@ -71,7 +71,7 @@ En esta experimentación el router es claramente el nodo que más paquetes who-h
 	\end{center}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 	\begin{center}
 		  \includegraphics[scale=0.4]{Graficos/starbucks_received_who_has.png}
 		  \caption{Histograma Starbucks, fuente: who-has recibidos}
@@ -79,5 +79,28 @@ En esta experimentación el router es claramente el nodo que más paquetes who-h
 	\end{center}
 \end{figure}
 
+En el caso de la red del centro médico, obtuvimos los siguientes valores para la entropía de cada fuente:
 
+\begin{itemize}
+\item H(Ssrc) = 3.0401020501109324
+\item H(Sdst) = 4.392439068957719
+\end{itemize}
+
+En esta experimentación es claro que el nodo que más paquetes who-has envía y recibe es el gateway: 192.169.0.1. A continuación los gráficos:
+
+\begin{figure}[!h]
+	\begin{center}
+		  \includegraphics[scale=0.4]{Graficos/centromedico_sent_who_has.png}
+		  \caption{Histograma Centro Médico, fuente: who-has enviados}
+		  \label{fig:contra1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+	\begin{center}
+		  \includegraphics[scale=0.4]{Graficos/centromedico_received_who_has.png}
+		  \caption{Histograma Centro Médico, fuente: who-has recibidos}
+		  \label{fig:contra1}
+	\end{center}
+\end{figure}
 
