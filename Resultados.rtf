@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Resultados\
+\
+A continuacion explicaremos los resultados obtenidos en cada una de las redes.\
+\
+Como mencionamos, en la red domestica, realizamos la recopilacion de los datos con y sin intervencion. Pudimos ver que al desconectar y conectar los dispositivos a la red, se generaban alrededor de 20 a 30 paquetes ARP. De modo que encontramos diferencias entre las dos experimentaciones. Los graficos siguientes muestran un aspecto de ambas corridas: cada nodo del grafo es un nodo de la red, y los ejes dirigidos apuntan de un nodo v a otro w si hubo algun mensaje tal que el pSrc es igual al IP de v  y el pDst es igual al IP de w. Ademas los nodos varian en tama\'f1o de acuerdo a la cantidad de paquetes a ARP que emitieron, siendo los mas grandes, los nodos que emitieron mas mensajes ARP:\
+\
+//Grafico 1\
+\
+//Grafico 2\
+\
+En ambos graficos se ve claramente cual es el gateway de la red, en este caso 192.168.0.1, ya que todos los nodos se comunican con ese nodo. Ademas es el nodo que envia mas mensajes ARP, lo cual se ve por su tama\'f1o mayor a los demas. \
+\
+En la segunda experimentancion, aunque el nodo gateway es el mas grande tambien, hay otros que son casi igual de grandes, o sea que enviaron casi la misma cantidad de paquetes ARP. Analizando los paquetes enviados por esos nodos, vimos que muchos son enviados al router, pero que gran parte de esos paquetes son enviados a la direccion 169.254.255.255. Segun la documentacion de Apple[1](los dispositivos son en su mayoria de Apple) esos paquetes son causados porque los dispositivos no encuentran el servidor DHCP, esto sucede cuando se los desconecta ya que pierden la ruta al servidor y entonces cuando se los vuelve a conectar, entonces envian mensajes ARP a esa direccion. \
+\
+Tambien vimos que hay paquetes que son enviados desde y hacia la direccion 181.167.64.234, la cual es la direccion publica que tiene el router a internet. Vemos que intercambia mensajes con  181.167.64.1 y creemos que es un router del ISP. Hay otros mensajes enviados desde esa direccion hacia la red local, pero desconocemos la razon de estos mensajes ARP. \
+\
+Tampoco sabemos la procedencia de otras IPs que parecieran ser dispositivos de la red(192.168.0.x) pero que no pudimos identificar y hay otras IPs que parecieran estar fuera de la red como 10.119.163.64 y 10.119.128.1, pero aun asi estan enviando mensajes ARP con broadcast en la red local. Realizando una busqueda en internet no pudimos encontrar informacion sobre esas IPs.\
+\
+Realizamos otra experimentacion en una red publica(Starbucks). Dado que la red es publica, no teniamos conocimiento alguno de los dispositivos en ella y estos se desconectaban y conectaban aleatoriamente. Obtuvimos los siguientes resultados:\
+\
+// Grafico 3\
+\
+Nuevamente es sencillo identificar cual es el gateway en la red: 10.251.14.1. Lo que nos llamo mucho la atencion, fue que habian dos nodos(los mas grandes) que emitian paquetes ARP casi de forma constante. El nodo mas grande ademas, mandaba muchos de sus paquetes a la direccion 0.0.0.0. Suponemos que ese funcionamiento es particular de la red de Starbucks que usa FibertelZone como una capa intermedia para conectarse.\
+\
+\
+\
+\
+[1] {\field{\*\fldinst{HYPERLINK "http://support.apple.com/kb/ta26003"}}{\fldrslt http://support.apple.com/kb/ta26003}}}
