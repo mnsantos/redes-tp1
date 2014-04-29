@@ -38,3 +38,16 @@ Realizamos otra experimentación en una red pública(Starbucks). Dado que la red
 
 Nuevamente es sencillo identificar cuál es el gateway en la red: 10.251.14.1. Lo que nos llamó mucho la atención es la existencia de dos nodos(los más grandes) que emitían paquetes ARP casi de forma constante. El mayor de ellos mandaba muchos de sus paquetes a la direccion 0.0.0.0. Suponemos que ese funcionamiento es particular de la red de Starbucks que usa FibertelZone como una capa intermedia para conectarse.
 
+Por último, observemos los resultados obtenidos en la red del centro médico. Al igual que la red de Starbucks, no conocíamos cómo se encontraba estructurada la red. Estos fueron los resultados:
+
+\begin{figure}[!h]
+	\begin{center}
+		  \includegraphics[scale=0.4]{Graficos/grafico_4.png}
+		  \caption{Red de un centro médico}
+		  \label{fig:contra1}
+	\end{center}
+\end{figure}
+
+Claramente el gateway de la red es: 192.168.0.1. También notamos la presencia de un nodo (190.191.218.250) que envía paquetes a varios dispositivos de la red local y al gateway cuya dirección ip nos hace deducir que no pertenece a la LAN. Buscando información en internet averiguamos que se trata de la dirección del ISP que pertenece al grupo Clarín.	
+
+
