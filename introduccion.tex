@@ -1,0 +1,53 @@
+\emph{Adress Resolution Protocol} o \emph{ARP} es un protocolo de la capa de enlace de datos responsable de encontrar
+la dirección hardware (Ethernet \emph{MAC}) que corresponde a una determinada dirección IP. Los nodos que se comunican
+a través de este protocolo deben formar parte de una misma red (no permite comunicación entre distintas redes).
+
+Uno de los aspectos del protocolo que nos interesa analizar 
+se basa en mensajes broadcast (a los cuales llamamos \emph{who-has}) utilizados por los nodos de la red
+para obtener la dirección física del router o gateway (punto de conexión entre la red local y las demás redes).
+Las respuestas por parte del router, por el contrario, son enviadas a través de mensajes \emph{unicast} ( 
+también conocidos como \emph{is-at}).
+
+Para que el protocolo sea llevado a cabo con éxito, en cada mensaje debe estar incluída la información necesaria:
+
+\begin{itemize}
+\item Tipo de mensaje: \emph{who-has} o \emph{is-at} en el contexto de nuestro análisis. (Existen otros tipos de mensajes)
+\item Especificaciones de protocolo 
+\item \emph{MAC} de la fuente
+\item \emph{MAC} del destino 
+\item \emph{IP} de la fuente
+\item \emph{IP} de la fuente
+\end{itemize}
+
+A continuación incluímos como ejemplo 2 mensajes capturados por el script de python basado en \emph{scapy}, el primero del tipo 
+\emph{who-has} emitido por un nodo de una red (computadora) y el segundo del tipo \emph{is-at}, emitido por el router
+de la misma:
+
+\vspace{1cm}
+Paquete \emph{\textbf{who-has}}. Consulta de un nodo al router:
+
+\begin{itemize}
+\item src = 0c:77:1a:ed:a7:42" (campo agregado por scappy)
+\item dst = ff:ff:ff:ff:ff:ff (campo agregado por scappy)
+\item hwdst = 00:00:00:00:00:00 (MAC destino = 0 en el caso de no conocerla)
+\item hwsrc = 0c:77:1a:ed:a7:42 (MAC fuente)
+\item psrc = 10.251.14.60 (IP fuente)
+\item pdst = 10.251.14.1 (IP destino)
+\item op = 1 (Tipo de mensaje \emph{who-has})
+\end{itemize}
+
+\vspace{1cm}
+Paquete \emph{\textbf{is-at}}. Respuesta del router a la máquina desde donde corrimos el script (distinto del nodo emisor del
+mensaje anterior)
+
+\begin{itemize}
+\item src = 4c:4e:35:12:a5:9c (campo agregado por scappy)
+\item dst = 6c:71:d9:56:56:b9 (campo agregado por scappy)
+\item hwdst = 6c:71:d9:56:56:b9 (MAC destino)
+\item hwsrc = 4c:4e:35:12:a5:9c (MAC fuente)
+\item psrc = 10.251.14.1 (IP fuente)
+\item pdst = 10.251.14.90 (IP destino)
+\item op = 2 (Tipo de mensaje \emph{is-at})
+\end{itemize}
+
+
