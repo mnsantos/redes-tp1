@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Analisis de la entropia\
+\
+Analisamos la entropia para las dos fuentes de informacion en cada uno de las experimentaciones.\
+\
+En el caso de la red hogare\'f1a, para la experimentacion sin intervencion obtuvimos que la entropia es:\
+H(Ssrc) = 
+\f1\fs22 1.9792698203575545
+\f0\fs24 \
+H(Sdst) = 
+\f1\fs22 3.7961238869546587
+\f0\fs24 \
+\
+Comparando la entropia para cada fuente con la cantidad de informacion de los simbolos obtuvimos resultados que se aproximan a los esperados, o sea que el IP router sea el mas activo, o sea el que tenga mas probabilidad y por ende menos informacion. Decimos que se aproximan porque en el caso de los who-has enviados, el router efectivamente es el que tiene menos informacion, pero en el caso de los who-has recibidos, la IP del router y otras IPs tienen un valor muy similar.\
+En los siguientes histogramas se ve la cantidad de informacion para cada IP y la linea roja es la entropia, o sea la media:\
+\
+// hogar_sin_sent_who_has.png\
+// hogar_sin_received_who_has.png\
+\
+Los nodos cuya cantidad de informacion esta por debajo de la entropia son aquellos que son mas activos y por ende tienen menos informacion.\
+\
+En el caso de la red hogare\'f1a, para la experimentacion con intervencion obtuvimos los siguientes valores para la entropia de cada fuente:\
+H(Ssrc) = 
+\f1\fs22 2.440087955604424
+\f0\fs24 \
+H(Sdst) = 
+\f1\fs22 2.9094618424425773
+\f0\fs24 \
+\
+A diferencia de la experimentacion anterior, resulto que hay nodos que emiten casi la misma cantidad de paquetes de tipo who-has que el router. Estos nodos son aquellos que en grafo direccionado, visto anteriormente, eran los nodos casi tan grandes como el router y que al perder conexion emiten un paquete ARP de tipo who-has. Por eso es que las cantidad emitida resulta proxima a la del router.\
+En cuanto a los paquetes de tipo who-has recibidos, el nodo que mas paquetes recibe es el 169.254.255.255, que como explicamos antes, es la IP a la que se manda ARP cuando se pierde el servidor DHCP.\
+\
+// hogar_con_sent_who_has.png\
+// hogar_con_received_who_has.png\
+\
+En el caso de la red publica, obtuvimos los siguientes valores para la entropia de cada fuente:\
+H(Ssrc) = 
+\f1\fs22 2.860373989857293
+\f0\fs24 \
+H(Sdst) = 
+\f1\fs22 1.7564032477264155
+\f0\fs24 \
+\
+En esta experimentacion resulto que el router es claramente el nodo que mas paquetes who-has recibe. Pero en cuanto a los paquetes who-has emitidos, se ve que el router no es el que mas paquetes envia, sino que como se menciono anteriormente hay 2 nodos(10.251.14.126 y 10.251.14.226) que son los principales emisores de paquetes ARP y que se mantuvieron muy activos a lo largo de la experimentacion.\
+\
+// starbucks_sent_who_has.png\
+// starbucks_received_who_has.png}
